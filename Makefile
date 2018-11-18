@@ -12,11 +12,14 @@ LIBSO=0
 
 DEBUG=0
 
-ARCH= -gencode arch=compute_30,code=sm_30 \
+#ARCH= -gencode arch=compute_30,code=sm_30 \
       -gencode arch=compute_35,code=sm_35 \
       -gencode arch=compute_50,code=[sm_50,compute_50] \
       -gencode arch=compute_52,code=[sm_52,compute_52] \
 	  -gencode arch=compute_61,code=[sm_61,compute_61]
+	  
+# GeForce RTX 2080 Ti, RTX 2080, RTX 2070
+ARCH= -gencode arch=compute_75,code=[sm_75,compute_75]
 
 OS := $(shell uname)
 
@@ -32,7 +35,7 @@ OS := $(shell uname)
 # GTX 1080, GTX 1070, GTX 1060, GTX 1050, GTX 1030, Titan Xp, Tesla P40, Tesla P4
 # ARCH= -gencode arch=compute_61,code=sm_61 -gencode arch=compute_61,code=compute_61
 
-# GP100/Tesla P100 – DGX-1
+# GP100/Tesla P100 â€“ DGX-1
 # ARCH= -gencode arch=compute_60,code=sm_60
 
 # For Jetson TX1, Tegra X1, DRIVE CX, DRIVE PX - uncomment:
